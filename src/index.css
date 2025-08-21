@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+@layer base {
+  body {
+    @apply bg-white dark:bg-secondary-800 text-secondary-800 dark:text-white font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-medium leading-tight;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply px-4 sm:px-6 md:px-8 max-w-7xl mx-auto;
+  }
+  
+  .btn {
+    @apply px-6 py-2.5 rounded-md font-medium transition-all duration-200 
+           inline-flex items-center justify-center text-center;
+  }
+
+  .btn-primary {
+    @apply bg-primary-500 text-secondary-800 hover:bg-primary-600 
+           active:bg-primary-700 disabled:bg-primary-300 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary-500 text-white hover:bg-secondary-600 
+           active:bg-secondary-700 disabled:bg-secondary-300 disabled:cursor-not-allowed;
+  }
+
+  .btn-outline {
+    @apply border border-primary-500 text-primary-500 bg-transparent 
+           hover:bg-primary-50 active:bg-primary-100;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2.5 rounded-md border border-gray-300 
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent
+           dark:bg-secondary-700 dark:border-secondary-600;
+  }
+
+  .card {
+    @apply bg-white dark:bg-secondary-700 rounded-lg shadow-card 
+           transition-all duration-300 hover:shadow-medium;
+  }
+
+  .badge {
+    @apply inline-flex items-center justify-center px-2.5 py-0.5 rounded-full 
+           text-xs font-medium;
+  }
+
+  .badge-primary {
+    @apply bg-primary-100 text-primary-800;
+  }
+
+  .badge-secondary {
+    @apply bg-secondary-100 text-secondary-800;
+  }
+
+  .badge-accent {
+    @apply bg-accent-100 text-accent-800;
+  }
+}
+
+/* Animations */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.4s ease-out;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { transform: translateY(10px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideDown {
+  0% { transform: translateY(-10px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
